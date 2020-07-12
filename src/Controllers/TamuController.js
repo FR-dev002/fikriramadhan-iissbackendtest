@@ -3,11 +3,12 @@ const Tamu = require("./../Models/Tamu");
 
 exports.getAll = (req, res) => {
 
-   Tamu.find(1)
+   Tamu.find()
       .exec()
       .then(resp => {
          return res.status(200).json({
             'data': resp,
+            'total': resp.length,
             'message': 'Success'
          });
       })
